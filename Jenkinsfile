@@ -75,14 +75,14 @@ pipeline {
                 script{
                    withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
                    sh 'docker login -u maruti768 -p ${dockerhubpwd}'}
-                   sh 'docker push youngminds73/ekart:latest'
+                   sh 'docker push maruti768/ekart:latest'
                 }
             }
         }
         stage('EKS and Kubectl configuration'){
             steps{
                 script{
-                    sh 'aws eks update-kubeconfig --region us-east-1 --name ankit-cluster'
+                    sh 'aws eks update-kubeconfig --region us-east-1 --name mac-cluster'
                 }
             }
         }
